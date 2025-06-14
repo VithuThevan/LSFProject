@@ -1,50 +1,61 @@
 /* Theme Variables */
 :root {
-  --primary-bg: #ffffff;
-  --secondary-bg: #f8f9fa;
-  --primary-text: #000000;
-  --secondary-text: #6c757d;
-  --border-color: #dee2e6;
+  /* Light Theme Colors */
+  --primary-bg: #f0f7ff;
+  --secondary-bg: #e6f3ff;
+  --primary-text: #2c3e50;
+  --secondary-text: #34495e;
+  --border-color: #0d7ddf;
   --card-bg: #ffffff;
   --input-bg: #ffffff;
-  --input-border: #ced4da;
-  --button-bg: #000000;
+  --input-border: #bde0fe;
+  --button-bg: #3498db;
   --button-text: #ffffff;
-  --shadow-color: rgba(0, 0, 0, 0.1);
-  --overlay-bg: rgba(0, 0, 0, 0.5);
-  --success-color: #28a745;
-  --error-color: #dc3545;
-  --warning-color: #ffc107;
-  --info-color: #17a2b8;
+  --shadow-color: rgba(52, 152, 219, 0.1);
+  --overlay-bg: rgba(52, 152, 219, 0.1);
+  --success-color: #2ecc71;
+  --error-color: #e74c3c;
+  --warning-color: #f1c40f;
+  --info-color: #3498db;
+  --accent-1: #3498db;
+  --accent-2: #2ecc71;
+  --accent-3: #e74c3c;
+  --accent-4: #f1c40f;
 }
 
 :root[data-theme='dark'] {
-  --primary-bg: #121212;
-  --secondary-bg: #1e1e1e;
+  /* Dark Theme Colors */
+  --primary-bg: #1a1a2e;
+  --secondary-bg: #16213e;
   --primary-text: #ffffff;
-  --secondary-text: #a0a0a0;
-  --border-color: #2d2d2d;
-  --card-bg: #1e1e1e;
-  --input-bg: #2d2d2d;
-  --input-border: #404040;
-  --button-bg: #ffffff;
-  --button-text: #000000;
-  --shadow-color: rgba(255, 255, 255, 0.1);
-  --overlay-bg: rgba(255, 255, 255, 0.1);
-  --success-color: #28a745;
-  --error-color: #dc3545;
-  --warning-color: #ffc107;
-  --info-color: #17a2b8;
+  --secondary-text: #e0e0e0;
+  --border-color: #9595bc;
+  --card-bg: #16213e;
+  --input-bg: #2d2d4d;
+  --input-border: #404060;
+  --button-bg: #00ffd5;
+  --button-text: #1a1a2e;
+  --shadow-color: rgba(0, 255, 213, 0.1);
+  --overlay-bg: rgba(0, 255, 213, 0.1);
+  --success-color: #00ffd5;
+  --error-color: #ff6b6b;
+  --warning-color: #ffd700;
+  --info-color: #00bfff;
+  --accent-1: #00ffd5;
+  --accent-2: #ff6b6b;
+  --accent-3: #ffd700;
+  --accent-4: #00bfff;
+  --: #a0a0a0;
 }
 
 /* Base Theme Styles */
 html {
-  background-color: var(--primary-bg);
+  background: linear-gradient(135deg, var(--primary-bg) 0%, var(--secondary-bg) 100%);
   color: var(--primary-text);
 }
 
 body {
-  background-color: var(--primary-bg);
+  background: linear-gradient(135deg, var(--primary-bg) 0%, var(--secondary-bg) 100%);
   color: var(--primary-text);
   min-height: 100vh;
   margin: 0;
@@ -53,9 +64,9 @@ body {
 
 .theme-wrapper {
   min-height: 100vh;
-  background-color: var(--primary-bg);
+  background: linear-gradient(135deg, var(--primary-bg) 0%, var(--secondary-bg) 100%);
   color: var(--primary-text);
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .theme-transition * {
@@ -63,7 +74,15 @@ body {
 }
 
 /* Typography */
-h1, h2, h3, h4, h5, h6, p, span, div {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+div {
   color: var(--primary-text);
 }
 
@@ -79,13 +98,17 @@ a:hover {
 }
 
 /* Form Elements */
-input, textarea, select {
+input,
+textarea,
+select {
   background-color: var(--input-bg) !important;
   color: var(--primary-text) !important;
   border-color: var(--input-border) !important;
 }
 
-input:focus, textarea:focus, select:focus {
+input:focus,
+textarea:focus,
+select:focus {
   background-color: var(--input-bg) !important;
   color: var(--primary-text) !important;
   border-color: var(--input-border) !important;
@@ -93,34 +116,51 @@ input:focus, textarea:focus, select:focus {
 }
 
 /* Buttons */
-button, .btn {
-  background-color: var(--button-bg) !important;
+button,
+.btn {
+  background: linear-gradient(135deg, var(--button-bg) 0%, var(--accent-1) 100%) !important;
   color: var(--button-text) !important;
-  border-color: var(--border-color) !important;
-  transition: all 0.3s ease;
+  border: none !important;
+  box-shadow: 0 2px 4px var(--shadow-color) !important;
+  transition: all 0.3s ease !important;
 }
 
-button:hover, .btn:hover {
-  opacity: 0.9;
+button:hover,
+.btn:hover {
   transform: translateY(-1px);
+  box-shadow: 0 4px 8px var(--shadow-color) !important;
+  opacity: 0.9;
 }
 
 /* Cards and Containers */
-.card, .container, .row, .col {
-  background-color: var(--card-bg) !important;
+.card,
+.container,
+.row,
+.col {
+  background: linear-gradient(135deg, var(--card-bg) 0%, var(--secondary-bg) 100%) !important;
   color: var(--primary-text) !important;
   border-color: var(--border-color) !important;
+  box-shadow: none !important;
+  transition: all 0.3s ease !important;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px var(--shadow-color) !important;
 }
 
 /* Tables */
-table, th, td {
+table,
+th,
+td {
   background-color: var(--card-bg) !important;
   color: var(--primary-text) !important;
   border-color: var(--border-color) !important;
 }
 
 /* Modals and Overlays */
-.modal-content, .modal-backdrop {
+.modal-content,
+.modal-backdrop {
   background-color: var(--card-bg) !important;
   color: var(--primary-text) !important;
 }
@@ -130,7 +170,8 @@ table, th, td {
 }
 
 /* Dropdowns */
-.dropdown-menu, .dropdown-item {
+.dropdown-menu,
+.dropdown-item {
   background-color: var(--card-bg) !important;
   color: var(--primary-text) !important;
   border-color: var(--border-color) !important;
@@ -142,15 +183,26 @@ table, th, td {
 
 /* Alerts and Notifications */
 .alert {
-  background-color: var(--card-bg) !important;
+  background: linear-gradient(135deg, var(--card-bg) 0%, var(--secondary-bg) 100%) !important;
+  border: 1px solid var(--border-color) !important;
   color: var(--primary-text) !important;
-  border-color: var(--border-color) !important;
 }
 
-.alert-success { color: var(--success-color) !important; }
-.alert-error { color: var(--error-color) !important; }
-.alert-warning { color: var(--warning-color) !important; }
-.alert-info { color: var(--info-color) !important; }
+.alert-success {
+  border-left: 4px solid var(--success-color) !important;
+}
+
+.alert-error {
+  border-left: 4px solid var(--error-color) !important;
+}
+
+.alert-warning {
+  border-left: 4px solid var(--warning-color) !important;
+}
+
+.alert-info {
+  border-left: 4px solid var(--info-color) !important;
+}
 
 /* Badges and Tags */
 .badge {
@@ -168,7 +220,8 @@ table, th, td {
 }
 
 /* Tooltips and Popovers */
-.tooltip, .popover {
+.tooltip,
+.popover {
   background-color: var(--card-bg) !important;
   color: var(--primary-text) !important;
   border-color: var(--border-color) !important;
@@ -192,12 +245,12 @@ table, th, td {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--secondary-text);
+  background: var(--accent-1);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--primary-text);
+  background: var(--accent-2);
 }
 
 /* Selection */
@@ -208,7 +261,7 @@ table, th, td {
 
 /* Loading Spinner */
 .spinner-border {
-  color: var(--primary-text) !important;
+  color: var(--accent-1) !important;
 }
 
 /* Charts and Graphs */
@@ -219,7 +272,8 @@ table, th, td {
 }
 
 /* Navigation */
-nav, .navbar {
+nav,
+.navbar {
   background-color: var(--card-bg) !important;
   color: var(--primary-text) !important;
   border-color: var(--border-color) !important;
@@ -233,11 +287,25 @@ footer {
 }
 
 /* Utility Classes */
-.bg-primary { background-color: var(--primary-bg) !important; }
-.bg-secondary { background-color: var(--secondary-bg) !important; }
-.text-primary { color: var(--primary-text) !important; }
-.text-secondary { color: var(--secondary-text) !important; }
-.border-primary { border-color: var(--border-color) !important; }
+.bg-primary {
+  background-color: var(--primary-bg) !important;
+}
+
+.bg-secondary {
+  background-color: var(--secondary-bg) !important;
+}
+
+.text-primary {
+  color: var(--primary-text) !important;
+}
+
+.text-secondary {
+  color: var(--secondary-text) !important;
+}
+
+.border-primary {
+  border-color: var(--border-color) !important;
+}
 
 /* Weather card specific styles */
 .weather-card {
@@ -260,12 +328,15 @@ footer {
 }
 
 /* Text colors */
-.text-muted {
-  color: var(--secondary-text) !important;
-}
+
 
 /* Headings */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: var(--primary-text);
   transition: color 0.3s ease;
 }
@@ -295,8 +366,10 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--primary-text) !important;
 }
 
-.table td, .table th {
+.table td,
+.table th {
   border-color: var(--border-color) !important;
+  color: var(--primary-text) !important;
 }
 
 /* Alert styles */
@@ -332,4 +405,98 @@ h1, h2, h3, h4, h5, h6 {
   background-color: var(--card-bg) !important;
   border-color: var(--border-color) !important;
   color: var(--primary-text) !important;
+}
+
+/* Navigation Tabs */
+.nav-tabs {
+  border-color: var(--border-color) !important;
+}
+
+.nav-tabs .nav-link {
+  color: var(--secondary-text) !important;
+  border-color: transparent !important;
+  background: transparent !important;
+  transition: all 0.3s ease !important;
+}
+
+.nav-tabs .nav-link:hover {
+  color: var(--accent-1) !important;
+  border-color: var(--border-color) !important;
+  background: var(--overlay-bg) !important;
+}
+
+.nav-tabs .nav-link.active {
+  color: var(--accent-1) !important;
+  background: transparent !important;
+  border-color: var(--accent-1) !important;
+  border-bottom-color: transparent !important;
+  box-shadow: 0 -2px 4px var(--shadow-color) !important;
+}
+
+/* Form Elements */
+.form-control {
+  background: var(--input-bg) !important;
+  border: 1px solid var(--input-border) !important;
+  color: var(--primary-text) !important;
+  transition: all 0.3s ease !important;
+}
+
+.form-control:focus {
+  border-color: var(--accent-1) !important;
+  box-shadow: 0 0 0 0.2rem var(--shadow-color) !important;
+}
+
+/* Weather Icons */
+.weather-icon {
+  filter: drop-shadow(0 2px 4px var(--shadow-color));
+  transition: all 0.3s ease;
+}
+
+.weather-icon:hover {
+  transform: scale(1.1);
+}
+
+/* Temperature Display */
+.temperature {
+  font-size: 2.5rem;
+  font-weight: bold;
+  background: linear-gradient(135deg, var(--accent-1) 0%, var(--accent-2) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 2px 4px var(--shadow-color);
+}
+
+/* Weather Condition Text */
+.weather-condition {
+  color: var(--accent-3) !important;
+  font-weight: 500;
+}
+
+/* Weather Details */
+.weather-detail {
+  background: linear-gradient(135deg, var(--card-bg) 0%, var(--secondary-bg) 100%);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1rem;
+  transition: all 0.3s ease;
+  color: var(--primary-text) !important;
+}
+
+.weather-detail:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+  background: linear-gradient(135deg, var(--accent-1) 0%, var(--accent-2) 100%) !important;
+  color: var(--button-text) !important;
+  border: none !important;
+  box-shadow: 0 2px 4px var(--shadow-color) !important;
+  transition: all 0.3s ease !important;
+}
+
+.theme-toggle:hover {
+  transform: rotate(180deg);
+  box-shadow: 0 4px 8px var(--shadow-color) !important;
 }

@@ -104,7 +104,6 @@ export default function Home() {
   const [selectedDay, setSelectedDay] = useState<number>(0);
   const [initialLoad, setInitialLoad] = useState(true);
   const [lastUpdateTime, setLastUpdateTime] = useState<Date | null>(null);
-  const [timeUntilUpdate, setTimeUntilUpdate] = useState<number>(30);
 
   // Handle initial mount
   useEffect(() => {
@@ -148,7 +147,6 @@ export default function Home() {
             country: data.countryName || ''
           });
         } else {
-          // Fallback to London if no city is found
           setCity('');
           setLocationData({
             city: '',
@@ -159,7 +157,6 @@ export default function Home() {
       } catch (error) {
         console.error('Error getting location:', error);
         setLocationError('Unable to get your location. Please enter a city manually.');
-        // Fallback to London on error
         setCity('London');
         setLocationData({
           city: '',
@@ -205,24 +202,6 @@ export default function Home() {
     // Cleanup interval on unmount or city change
     return () => clearInterval(refreshInterval);
   }, [mounted, city, fetchWeatherData]);
-
-  // Countdown timer
-  useEffect(() => {
-    if (!lastUpdateTime) return;
-
-    const countdownInterval = setInterval(() => {
-      const now = new Date();
-      const timeDiff = Math.floor((now.getTime() - lastUpdateTime.getTime()) / 1000);
-      const remainingTime = Math.max(0, 30 - timeDiff);
-      setTimeUntilUpdate(remainingTime);
-
-      if (remainingTime === 0) {
-        setTimeUntilUpdate(30);
-      }
-    }, 1000);
-
-    return () => clearInterval(countdownInterval);
-  }, [lastUpdateTime]);
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -271,21 +250,14 @@ export default function Home() {
         <div className="col-md-10">
           <div className="d-flex justify-content-between align-items-center mb-5">
             <h1 className="display-4 mb-0">Weather Forecast</h1>
-            <div className="d-flex align-items-center gap-3">
-              {lastUpdateTime && !isLoading && (
-                <div className="text-muted small">
-                  Next update in {timeUntilUpdate}s
-                </div>
-              )}
-              <button
-                onClick={toggleTheme}
-                className="btn btn-outline-secondary rounded-circle p-2"
-                aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
-                style={{ width: '40px', height: '40px' }}
-              >
-                {theme === 'light' ? '🌙' : '☀️'}
-              </button>
-            </div>
+            <button
+              onClick={toggleTheme}
+              className="btn btn-outline-secondary rounded-circle p-2"
+              aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
+              style={{ width: '40px', height: '40px' }}
+            >
+              {theme === 'light' ? '🌙' : '☀️'}
+            </button>
           </div>
 
           {locationError && !isLoading && (

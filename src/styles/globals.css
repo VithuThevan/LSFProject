@@ -1,0 +1,335 @@
+/* Theme Variables */
+:root {
+  --primary-bg: #ffffff;
+  --secondary-bg: #f8f9fa;
+  --primary-text: #000000;
+  --secondary-text: #6c757d;
+  --border-color: #dee2e6;
+  --card-bg: #ffffff;
+  --input-bg: #ffffff;
+  --input-border: #ced4da;
+  --button-bg: #000000;
+  --button-text: #ffffff;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --overlay-bg: rgba(0, 0, 0, 0.5);
+  --success-color: #28a745;
+  --error-color: #dc3545;
+  --warning-color: #ffc107;
+  --info-color: #17a2b8;
+}
+
+:root[data-theme='dark'] {
+  --primary-bg: #121212;
+  --secondary-bg: #1e1e1e;
+  --primary-text: #ffffff;
+  --secondary-text: #a0a0a0;
+  --border-color: #2d2d2d;
+  --card-bg: #1e1e1e;
+  --input-bg: #2d2d2d;
+  --input-border: #404040;
+  --button-bg: #ffffff;
+  --button-text: #000000;
+  --shadow-color: rgba(255, 255, 255, 0.1);
+  --overlay-bg: rgba(255, 255, 255, 0.1);
+  --success-color: #28a745;
+  --error-color: #dc3545;
+  --warning-color: #ffc107;
+  --info-color: #17a2b8;
+}
+
+/* Base Theme Styles */
+html {
+  background-color: var(--primary-bg);
+  color: var(--primary-text);
+}
+
+body {
+  background-color: var(--primary-bg);
+  color: var(--primary-text);
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.theme-wrapper {
+  min-height: 100vh;
+  background-color: var(--primary-bg);
+  color: var(--primary-text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.theme-transition * {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6, p, span, div {
+  color: var(--primary-text);
+}
+
+/* Links */
+a {
+  color: var(--primary-text);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--secondary-text);
+}
+
+/* Form Elements */
+input, textarea, select {
+  background-color: var(--input-bg) !important;
+  color: var(--primary-text) !important;
+  border-color: var(--input-border) !important;
+}
+
+input:focus, textarea:focus, select:focus {
+  background-color: var(--input-bg) !important;
+  color: var(--primary-text) !important;
+  border-color: var(--input-border) !important;
+  box-shadow: 0 0 0 0.2rem var(--shadow-color) !important;
+}
+
+/* Buttons */
+button, .btn {
+  background-color: var(--button-bg) !important;
+  color: var(--button-text) !important;
+  border-color: var(--border-color) !important;
+  transition: all 0.3s ease;
+}
+
+button:hover, .btn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+/* Cards and Containers */
+.card, .container, .row, .col {
+  background-color: var(--card-bg) !important;
+  color: var(--primary-text) !important;
+  border-color: var(--border-color) !important;
+}
+
+/* Tables */
+table, th, td {
+  background-color: var(--card-bg) !important;
+  color: var(--primary-text) !important;
+  border-color: var(--border-color) !important;
+}
+
+/* Modals and Overlays */
+.modal-content, .modal-backdrop {
+  background-color: var(--card-bg) !important;
+  color: var(--primary-text) !important;
+}
+
+.modal-backdrop.show {
+  background-color: var(--overlay-bg) !important;
+}
+
+/* Dropdowns */
+.dropdown-menu, .dropdown-item {
+  background-color: var(--card-bg) !important;
+  color: var(--primary-text) !important;
+  border-color: var(--border-color) !important;
+}
+
+.dropdown-item:hover {
+  background-color: var(--secondary-bg) !important;
+}
+
+/* Alerts and Notifications */
+.alert {
+  background-color: var(--card-bg) !important;
+  color: var(--primary-text) !important;
+  border-color: var(--border-color) !important;
+}
+
+.alert-success { color: var(--success-color) !important; }
+.alert-error { color: var(--error-color) !important; }
+.alert-warning { color: var(--warning-color) !important; }
+.alert-info { color: var(--info-color) !important; }
+
+/* Badges and Tags */
+.badge {
+  background-color: var(--button-bg) !important;
+  color: var(--button-text) !important;
+}
+
+/* Progress Bars */
+.progress {
+  background-color: var(--secondary-bg) !important;
+}
+
+.progress-bar {
+  background-color: var(--button-bg) !important;
+}
+
+/* Tooltips and Popovers */
+.tooltip, .popover {
+  background-color: var(--card-bg) !important;
+  color: var(--primary-text) !important;
+  border-color: var(--border-color) !important;
+}
+
+/* List Groups */
+.list-group-item {
+  background-color: var(--card-bg) !important;
+  color: var(--primary-text) !important;
+  border-color: var(--border-color) !important;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--secondary-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--secondary-text);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-text);
+}
+
+/* Selection */
+::selection {
+  background-color: var(--secondary-text);
+  color: var(--primary-bg);
+}
+
+/* Loading Spinner */
+.spinner-border {
+  color: var(--primary-text) !important;
+}
+
+/* Charts and Graphs */
+.chart-container {
+  background-color: var(--card-bg);
+  color: var(--primary-text);
+  border-color: var(--border-color);
+}
+
+/* Navigation */
+nav, .navbar {
+  background-color: var(--card-bg) !important;
+  color: var(--primary-text) !important;
+  border-color: var(--border-color) !important;
+}
+
+/* Footer */
+footer {
+  background-color: var(--card-bg) !important;
+  color: var(--primary-text) !important;
+  border-color: var(--border-color) !important;
+}
+
+/* Utility Classes */
+.bg-primary { background-color: var(--primary-bg) !important; }
+.bg-secondary { background-color: var(--secondary-bg) !important; }
+.text-primary { color: var(--primary-text) !important; }
+.text-secondary { color: var(--secondary-text) !important; }
+.border-primary { border-color: var(--border-color) !important; }
+
+/* Weather card specific styles */
+.weather-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+
+.weather-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+/* Input group styles */
+.input-group-text {
+  background-color: var(--input-bg);
+  border-color: var(--input-border);
+  color: var(--primary-text);
+  transition: all 0.3s ease;
+}
+
+/* Text colors */
+.text-muted {
+  color: var(--secondary-text) !important;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--primary-text);
+  transition: color 0.3s ease;
+}
+
+/* Modal and dropdown styles */
+.modal-content {
+  background-color: var(--card-bg) !important;
+  color: var(--primary-text) !important;
+  border-color: var(--border-color) !important;
+}
+
+.dropdown-menu {
+  background-color: var(--card-bg) !important;
+  border-color: var(--border-color) !important;
+}
+
+.dropdown-item {
+  color: var(--primary-text) !important;
+}
+
+.dropdown-item:hover {
+  background-color: var(--secondary-bg) !important;
+}
+
+/* Table styles */
+.table {
+  color: var(--primary-text) !important;
+}
+
+.table td, .table th {
+  border-color: var(--border-color) !important;
+}
+
+/* Alert styles */
+.alert {
+  background-color: var(--card-bg) !important;
+  border-color: var(--border-color) !important;
+  color: var(--primary-text) !important;
+}
+
+/* Badge styles */
+.badge {
+  background-color: var(--button-bg) !important;
+  color: var(--button-text) !important;
+}
+
+/* Progress bar */
+.progress {
+  background-color: var(--secondary-bg) !important;
+}
+
+.progress-bar {
+  background-color: var(--button-bg) !important;
+}
+
+/* Tooltip */
+.tooltip {
+  background-color: var(--card-bg) !important;
+  color: var(--primary-text) !important;
+}
+
+/* Popover */
+.popover {
+  background-color: var(--card-bg) !important;
+  border-color: var(--border-color) !important;
+  color: var(--primary-text) !important;
+}

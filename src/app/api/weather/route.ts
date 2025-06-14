@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 
-export async function GET() {
+export async function GET(req: NextRequest) {
   const apiKey = process.env.WEATHER_API_KEY;
-  
+
   if (!apiKey) {
     return NextResponse.json(
       { error: 'Weather API key is not configured' },
@@ -11,9 +11,12 @@ export async function GET() {
     );
   }
 
+  const { searchParams } = new URL(req.url);
+  const city = searchParams.get('q') || 'Colombo';
+
   try {
     const response = await fetch(
-      `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=Colombo&aqi=no`
+      `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}&aqi=no`
     );
 
     if (!response.ok) {
@@ -21,7 +24,7 @@ export async function GET() {
     }
 
     const data = await response.json();
-    
+
     return NextResponse.json({
       temperature: data.current.temp_c,
       humidity: data.current.humidity,
@@ -36,4 +39,4 @@ export async function GET() {
       { status: 500 }
     );
   }
-} 
+}

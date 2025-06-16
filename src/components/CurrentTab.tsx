@@ -33,12 +33,10 @@ const CurrentWeather: React.FC<Props> = ({ weatherData }) => {
                                     />
                                 )}
                                 <div className="ms-md-3 mt-2 mt-md-0">
-                                    <div className="d-flex flex-column flex-sm-row align-items-center justify-content-center justify-content-md-start">
-                                        <h3 className="h5 mb-0 me-sm-2">{weatherData?.current?.temp_c || 0}°C</h3>
-                                        <small className="text-muted">
-                                            Feels like {weatherData?.current?.feelslike_c || 0}°C
-                                        </small>
-                                    </div>
+                                    <h3 className="h5 mb-0">{weatherData?.current?.temp_c || 0}°C</h3>
+                                    <p className="mb-0 small text-muted">
+                                        Feels like {weatherData?.current?.feelslike_c || 0}°C
+                                    </p>
                                     <p className="mb-0">{weatherData?.current?.condition?.text || 'No data'}</p>
                                 </div>
                             </div>

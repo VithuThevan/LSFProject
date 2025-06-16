@@ -17,7 +17,7 @@ async function fetchWeatherData(city: string) {
       historyResponse
     ] = await Promise.all([
       fetch(`${BASE_URL}/current.json?key=${API_KEY}&q=${city}&aqi=yes`),
-      fetch(`${BASE_URL}/forecast.json?key=${API_KEY}&q=${city}&days=7&aqi=yes`),
+      fetch(`${BASE_URL}/forecast.json?key=${API_KEY}&q=${city}&days=7&aqi=yes&alerts=yes`),
       fetch(`${BASE_URL}/astronomy.json?key=${API_KEY}&q=${city}`),
       fetch(`${BASE_URL}/alerts.json?key=${API_KEY}&q=${city}`),
       fetch(`${BASE_URL}/sports.json?key=${API_KEY}&q=${city}`),

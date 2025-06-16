@@ -135,7 +135,7 @@ button:hover,
 /* Cards and Containers */
 .card,
 .container,
-.row,
+
 .col {
   background: linear-gradient(135deg, var(--card-bg) 0%, var(--secondary-bg) 100%) !important;
   color: var(--primary-text) !important;

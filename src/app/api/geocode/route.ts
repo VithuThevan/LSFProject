@@ -14,7 +14,7 @@ export async function GET(request: Request) {
 
   try {
     const response = await fetch(
-      `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lng}&localityLanguage=en`
+      `${process.env.GEOCODE_URL}?latitude=${lat}&longitude=${lng}&localityLanguage=en`
     );
     const data = await response.json();
     return NextResponse.json(data);

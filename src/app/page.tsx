@@ -431,7 +431,7 @@ export default function Home() {
                       aria-hidden="true"
                     ></span>
                   ) : (
-                    "Search"
+                    <i className="bi bi-search"></i>
                   )}
                 </button>
               </div>

@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 
 const API_KEY = process.env.WEATHER_API_KEY;
-const BASE_URL = 'http://api.weatherapi.com/v1';
+const BASE_URL = process.env.BASE_URL;
 
 async function fetchWeatherData(city: string) {
   try {
@@ -45,11 +45,6 @@ async function fetchWeatherData(city: string) {
       marineResponse.json(),
       historyResponse.json()
     ]);
-
-    // Log the responses to debug
-    console.log('Current Data:', currentData);
-    console.log('Forecast Data:', forecastData);
-    console.log('Astronomy Data:', astronomyData);
 
     // Transform the data to match the expected structure
     const transformedData = {
